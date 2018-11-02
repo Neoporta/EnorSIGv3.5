@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:gravity="top"
+        android:id="@+id/logotopazio2"
+        android:src="@mipmap/logo_enorsig"/>
+
+    <TextView
+        android:paddingTop="160dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/lblUsuario"
+        android:text="Usuário"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/lblUsuario"
+        android:layout_alignRight="@id/lblUsuario"
+        android:layout_below="@id/lblUsuario"
+        android:ems="10"
+        android:id="@+id/txtUsuario"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/txtUsuario"
+        android:layout_alignRight="@id/txtUsuario"
+        android:layout_below="@id/txtUsuario"
+        android:layout_marginTop="10dp"
+        android:id="@+id/lblPassword"
+        android:text="Senha"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/lblPassword"
+        android:layout_alignRight="@id/lblPassword"
+        android:layout_below="@id/lblPassword"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:id="@+id/txtPassword"/>
+
+    <Button
+        android:id="@+id/btnEnviar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_alignLeft="@id/txtPassword"
+        android:layout_alignRight="@id/txtPassword"
+        android:layout_below="@id/txtPassword"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:text="Entrar" />
+
+
+
+
+
+</RelativeLayout>
