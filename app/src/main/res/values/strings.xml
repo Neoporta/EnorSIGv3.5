@@ -1,0 +1,142 @@
+<resources>
+    <string name="app_name">EnorSIG v3.5</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="version_bd">15</string>
+
+    <string name="numeroOrden">Nº Orden:</string>
+    <string name="labelNumeroEquipo">Nº Equipo:</string>
+    <string name="capture_button_a">Foto A</string>
+    <string name="capture_button_b">Foto B</string>
+    <string name="capture_button_c">Foto C</string>
+    <string name="capture_button_d">Foto D</string>
+    <string name="capture_button_e">Foto E</string>
+    <string name="capture_button_f">Foto F</string>
+    <string name="capture_button_g">Foto G</string>
+    <string name="desc">No Foto</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string-array name="acao_array">
+        <item>0 - NAO EXECUTADO</item>
+        <item>101 - CORTE EFETUADO</item>
+        <item>102 - SUPRESSAO EFETUADA</item>
+        <item>103 - APLICAÇÃO DE FITA LACRE</item>
+        <item>104 - ENTREGA DE EXTRATO</item>
+        <item>105 - CARTA ACARTORIO / NEGATIVAÇÃO ENVIADA</item>
+        <item>201 - RETABELECIMENTO EFETUADO</item>
+        <item>202 - RELIGAÇÃO EFETUADA</item>
+        <item>301 - CONTA PAGA</item>
+        <item>302 - HIDROMETRO DESAPARECIDO(LIGAÇÃO SEM HIDRO)</item>
+        <item>305 - PREDIO SEM LIGAÇÃO</item>
+        <item>306 - IMPEDIU O CORTE</item>
+        <item>308 - CÃO SOLTO</item>
+        <item>309 - PREDIO VAGOSEM MORADOR</item>
+        <item>310 - MORADOR AUSENTE</item>
+        <item>311 - HIDRO COM IMPEDIMENTO</item>
+        <item>312 - HIDROMENTRO EMBAIXADO OU ARÁS DA VITRINE</item>
+        <item>313 - ABRIGO TRACANDO OU DURO</item>
+        <item>314 - DEMOLIDO COM LIGAÇÃO</item>
+        <item>315 - ENTIDADE PUBLICA</item>
+        <item>316 - NÃO LOCALIZADA</item>
+        <item>317 - RUA NÃO LOCALIZADA</item>
+        <item>318 - FALTA DE AGUA</item>
+        <item>320 - CONTA EM PROCESSO DE REVISÃO</item>
+        <item>321 - CLIENTE SOLICITOU FAZER ACORDO / PAGAMENTO</item>
+        <item>351 - CAVALENTE MULTIPLO SEM ACESSO</item>
+        <item>352 - OUTRO TITULAR INFORMADO / CLIENTE ORIENTADO</item>
+        <item>407 - NÃO EFETUADO</item>
+        <item>511 - FISCALIZAÇÃO OK</item>
+        <item>512 - FISCALIZAÇÃO PENDENTE</item>
+        <item>999 - Conta Paga Retirada Antes Ir Rua</item>
+    </string-array>
+
+    <string-array name="acao_array_id">
+        <item>0</item>
+        <item>101</item>
+        <item>102</item>
+        <item>103</item>
+        <item>104</item>
+        <item>105</item>
+        <item>201</item>
+        <item>202</item>
+        <item>301</item>
+        <item>302</item>
+        <item>305</item>
+        <item>306</item>
+        <item>308</item>
+        <item>309</item>
+        <item>310</item>
+        <item>311</item>
+        <item>312</item>
+        <item>313</item>
+        <item>314</item>
+        <item>315</item>
+        <item>316</item>
+        <item>317</item>
+        <item>318</item>
+        <item>320</item>
+        <item>321</item>
+        <item>351</item>
+        <item>352</item>
+        <item>407</item>
+        <item>511</item>
+        <item>512</item>
+        <item>999</item>
+    </string-array>
+
+    <string-array name="ramal_array">
+        <item>Ninguno</item>
+        <item>PAD</item>
+        <item>Ferro Galvanizado</item>
+    </string-array>
+
+    <string-array name="ramal_array_id">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="imovel">
+        <item>Selecionar</item>
+        <item>Vago</item>
+        <item>Morador Ausente</item>
+        <item>Não Visitado</item>
+        <item>Area de Risco</item>
+        <item>Suprimido</item>
+    </string-array>
+
+    <string-array name="supressao">
+        <item>Selecionar</item>
+        <item>Preservada</item>
+        <item>Violado</item>
+        <item>Religado</item>
+    </string-array>
+
+    <string-array name="tsupressao">
+        <item>Selecionar</item>
+        <item>Ramal</item>
+        <item>Cavalete</item>
+        <item>Caixa UMA</item>
+    </string-array>
+
+    <string-array name="abastecimiento">
+        <item>Selecionar</item>
+        <item>Vizinho</item>
+        <item>Poço</item>
+        <item>Sem abastecimento</item>
+        <item>Clandestino</item>
+        <item>Suspeita de irregularidade</item>
+        <item>Caminhão pipa</item>
+        <item>Não constatado</item>
+        <item>Com abastecimento normal</item>
+        <item>Outros</item>
+    </string-array>
+
+    <string-array name="repo">
+        <item>Selecionar</item>
+        <item>Sim</item>
+        <item>Nao</item>
+    </string-array>
+
+</resources>

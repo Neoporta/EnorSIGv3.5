@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".OrdenDetailActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="70dp"
+        android:layout_margin="5dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#610B0B"
+            android:id="@+id/lblTituloOrden"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="Nº OC/OS"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#6E6E6E"
+            android:id="@+id/nroOC"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="RGI"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#6E6E6E"
+            android:id="@+id/RGI"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#6E6E6E"
+            android:id="@+id/direccion"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="Acao"/>
+
+        <Spinner
+            android:id="@+id/txtAcao"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:id="@+id/lblRamal"
+            android:text="Ramal"/>
+
+        <Spinner
+            android:id="@+id/txtRamal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:paddingTop="10dp"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="Leitura"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:digits="0123456789"
+            android:textSize="14sp"
+            android:id="@+id/txtLectura"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="Observacion"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:id="@+id/txtObservacion"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:id="@+id/lblTipoSuspen"
+            android:visibility="gone"
+            android:text="Tipo Supressao"/>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_tipos"
+            android:visibility="gone"
+            android:paddingTop="10dp"
+            android:orientation="horizontal">
+            <RadioButton android:id="@+id/radio_1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:gravity="center"
+                android:paddingRight="10dp"
+                android:textSize="14dp"
+                android:text="Cavalete"/>
+            <RadioButton android:id="@+id/radio_2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingRight="10dp"
+                android:textSize="14dp"
+                android:checked="false"
+                android:gravity="center"
+                android:text="Ramal"/>
+            <RadioButton android:id="@+id/radio_3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingRight="10dp"
+                android:textSize="14dp"
+                android:checked="false"
+                android:gravity="center"
+                android:text="Caixa UMA"/>
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:id="@+id/lblNomeDoCliente"
+            android:text="Nome do Cliente"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:textSize="14sp"
+            android:id="@+id/txtNomeDoCliente"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:id="@+id/lblTelefone"
+            android:text="Telefone"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:textSize="14sp"
+            android:id="@+id/txtTelefone"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:id="@+id/lblNroEsquerda"
+            android:text="Nro de Esquerda"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:textSize="14sp"
+            android:id="@+id/txtNroEsquerda"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:id="@+id/lblNroDereita"
+            android:text="Nro de Direita"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:textSize="14sp"
+            android:id="@+id/txtNroDereita"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:id="@+id/lblCaracteristicasImovel"
+            android:text="Caracteristicas Imovel"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:textSize="14sp"
+            android:id="@+id/txtCaracteristicasImovel"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:id="@+id/lblImovel"
+            android:text="Situacao Imovel"/>
+
+        <Spinner
+            android:id="@+id/txtImovel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:paddingTop="10dp"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:id="@+id/lblSupressao"
+            android:text="Situacao Supressao"/>
+
+        <Spinner
+            android:id="@+id/txtSupressao"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:paddingTop="10dp"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:id="@+id/lblTSupressao"
+            android:text="Tipo Supressao"/>
+
+        <Spinner
+            android:id="@+id/txtTSupressao"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:paddingTop="10dp"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:id="@+id/lblAbastecimiento"
+            android:text="Forma Abastecimento"/>
+
+        <Spinner
+            android:id="@+id/txtAbastecimiento"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:paddingTop="10dp"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:id="@+id/lblRepo"
+            android:text="REPOSIÇÃO"/>
+
+        <Spinner
+            android:id="@+id/txtRepo"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:paddingTop="10dp"
+            android:textSize="14sp" />
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingTop="20dp"
+            android:columnCount="2"
+            android:rowCount="7"
+            android:id="@+id/gridFotos"
+            android:minWidth="280dp">
+
+            <ImageView
+                android:id="@+id/captured_image_a"
+                style="@style/MyImageView"
+                android:layout_column="0"
+                android:layout_row="0" />
+
+            <Button
+                android:id="@+id/button_a"
+                style="@style/MyStyleButton"
+                android:layout_column="1"
+                android:layout_row="0"
+                android:text="@string/capture_button_a"/>
+
+            <ImageView
+                android:id="@+id/captured_image_b"
+                style="@style/MyImageView"
+                android:layout_column="0"
+                android:layout_row="1" />
+
+            <Button
+                android:id="@+id/button_b"
+                style="@style/MyStyleButton"
+                android:layout_column="1"
+                android:layout_row="1"
+                android:text="@string/capture_button_b" />
+
+            <ImageView
+                android:id="@+id/captured_image_c"
+                style="@style/MyImageView"
+                android:layout_column="0"
+                android:layout_row="2" />
+
+            <Button
+                android:id="@+id/button_c"
+                style="@style/MyStyleButton"
+                android:layout_column="1"
+                android:layout_row="2"
+                android:text="@string/capture_button_c" />
+
+            <ImageView
+                android:id="@+id/captured_image_d"
+                style="@style/MyImageView"
+                android:layout_column="0"
+                android:layout_row="3" />
+
+            <Button
+                android:id="@+id/button_d"
+                style="@style/MyStyleButton"
+                android:layout_column="1"
+                android:layout_row="3"
+                android:text="@string/capture_button_d" />
+
+            <ImageView
+                android:id="@+id/captured_image_e"
+                style="@style/MyImageView"
+                android:layout_column="0"
+                android:layout_row="4" />
+
+            <Button
+                android:id="@+id/button_e"
+                style="@style/MyStyleButton"
+                android:layout_column="1"
+                android:layout_row="4"
+                android:text="@string/capture_button_e" />
+
+            <ImageView
+                android:id="@+id/captured_image_f"
+                style="@style/MyImageView"
+                android:layout_column="0"
+                android:layout_row="5" />
+
+            <Button
+                android:id="@+id/button_f"
+                style="@style/MyStyleButton"
+                android:layout_column="1"
+                android:layout_row="5"
+                android:text="@string/capture_button_f" />
+
+            <ImageView
+                android:id="@+id/captured_image_g"
+                style="@style/MyImageView"
+                android:layout_column="0"
+                android:layout_row="6" />
+
+            <Button
+                android:id="@+id/button_g"
+                style="@style/MyStyleButton"
+                android:layout_column="1"
+                android:layout_row="6"
+                android:text="@string/capture_button_g" />
+
+        </GridLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:text="Enviar"
+            android:id="@+id/btnEnviar"/>
+
+        <TextView android:id="@+id/lblLatitud"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="0.00"/>
+
+        <TextView android:id="@+id/lblLongitud"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="0.00"/>
+
+    </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

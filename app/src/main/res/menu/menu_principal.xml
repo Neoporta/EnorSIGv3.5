@@ -1,0 +1,43 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="enorsul.com.enorsul.PrincipalActivity">
+    <item
+        android:id="@+id/action_photo_camera"
+        android:icon="@drawable/ic_photo_camera"
+        android:title="Fotos"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_map"
+        android:icon="@drawable/ic_map"
+        android:title="Mapa"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_person_detail"
+        android:icon="@drawable/ic_person_detail"
+        android:title="Meta Mensal"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_upload"
+        android:icon="@drawable/ic_file_upload"
+        android:title="Subir Ordenes"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_actualizar"
+        android:icon="@drawable/ic_file_upload"
+        android:title="Actualizar Ordenes"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_reenviar"
+        android:icon="@drawable/ic_file_upload"
+        android:title="Reenviar"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_cerrar_sesion"
+        android:icon="@drawable/ic_file_upload"
+        android:title="Cerrar Sesión"
+        app:showAsAction="ifRoom" />
+
+</menu>
