@@ -77,6 +77,7 @@ public class OrdenesFaltantesFragment extends Fragment {
                     "  FROM [enorsig_app] t1" +
                     "  where 1 = 1" +
                     "  AND IFNULL(estado, '0') = '0' " +
+                    "  AND pariedade <> '-99'" +
                     "  AND t1.VisCFum = '"+nroEmpleado+"'" +
                     "  and VisDVis = '" +fecha+ "' ORDER BY CAST(nro_orden as integer)";
 

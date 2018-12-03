@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         Log.d("SYNCLOG", "LoginActivity_45_EntrarDispararAlarme");
 
         disparaAlarme();
-        launchApp("com.resilio.sync");
+        //launchApp("com.resilio.sync");
 
 
         EnorsigSQLiteHelper usdbh = new EnorsigSQLiteHelper(this, "DBEnorsig", null, 19);
@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
         dateFormat.setTimeZone(c.getTimeZone());
         fechaHoy = dateFormat.format(c.getTime());
 
-        //fechaHoy = "2018-09-27";
+        //fechaHoy = "2018-10-25";
 
         if (!(enorsul.com.enorsul.Utils.leerValor(getApplicationContext(), "usuario").equals("")) && (enorsul.com.enorsul.Utils.leerValor(getApplicationContext(), "clave").equals("5581")) && BuildConfig.VERSION_CODE >= 12 ) {
             if (verificaConexao()) {
@@ -214,7 +214,8 @@ public class LoginActivity extends AppCompatActivity {
                     "  ,ISNULL(estado, 0) estado" +
                     "  ,Nome" +
                     "  ,(rtrim(t1.rgiKend) + ' ' + cast(t1.rgiNend as varchar) + ' ' + rtrim(t1.rgiBai) + ' ' + xcep) obs" +
-                    "  ,'2' pariedade" +
+                    //"  ,'2' pariedade" +
+                    "  ,pariedade" +
                     "  ,acao" +
                     "  ,NroOrden" +
                     "  FROM [enorsig_app] t1" +
@@ -227,25 +228,54 @@ public class LoginActivity extends AppCompatActivity {
 
             while (rs.next()) {
 
-                sql = "INSERT INTO enorsig_app (rgiNrgi, dcsNord, rgiCsab, obs, estado, nome, VisCFum, VisDVis, acao, nro_orden, pariedade)" +
-                        " VALUES ('"+rs.getString("rgiNrgi")+"'," +
-                        "           '"+rs.getString("DcsNord")+"'," +
-                        "           '"+rs.getString("rgiCsab")+"'," +
-                        "           '"+rs.getString("obs")+"'," +
-                        "           '"+rs.getString("estado")+"'," +
-                        "           '"+rs.getString("nome")+"'," +
-                        "           '"+nroEmpleado+"'," +
-                        "           '"+fecha+"'," +
-                        "           '"+rs.getString("acao")+"'," +
-                        "           '"+rs.getString("NroOrden")+"'," +
-                        "           '"+rs.getString("pariedade")+"')";
+                if (rs.getString("pariedade").equals("-99")) {
+                    sql = "UPDATE enorsig_app SET pariedade = '-99'" +
+                            " WHERE VisCFum = '"+nroEmpleado+"'" +
+                            " and VisDVis = '"+fecha+"'" +
+                            " and dcsNord = '"+rs.getString("DcsNord")+"'" +
+                            " and rgiNrgi = '"+rs.getString("rgiNrgi")+"'";
+                    db.execSQL(sql);
+                } else {
 
-                db.execSQL(sql);
+                    try {
+
+                        sql = "INSERT INTO enorsig_app (rgiNrgi, dcsNord, rgiCsab, obs, estado, nome, VisCFum, VisDVis, acao, nro_orden, pariedade)" +
+                                " VALUES ('"+rs.getString("rgiNrgi")+"'," +
+                                "           '"+rs.getString("DcsNord")+"'," +
+                                "           '"+rs.getString("rgiCsab")+"'," +
+                                "           '"+rs.getString("obs")+"'," +
+                                "           '"+rs.getString("estado")+"'," +
+                                "           '"+rs.getString("nome")+"'," +
+                                "           '"+nroEmpleado+"'," +
+                                "           '"+fecha+"'," +
+                                "           '"+rs.getString("acao")+"'," +
+                                "           '"+rs.getString("NroOrden")+"'," +
+                                "           '"+rs.getString("pariedade")+"')";
+
+                        db.execSQL(sql);
+
+                        //PASO 2: Cambio a Pariedade 2
+                        sql = "UPDATE enorsig_app" +
+                                " SET pariedade = '2'" +
+                                " WHERE VisCFum = '"+nroEmpleado+"'" +
+                                " AND VisDVis = '"+fecha+"'" +
+                                " and dcsNord = '"+rs.getString("DcsNord")+"'" +
+                                " and rgiNrgi = '"+rs.getString("rgiNrgi")+"'";
+
+                        PreparedStatement ps = conexionBD().prepareStatement(sql);
+                        ps.executeUpdate();
+                        ps.close();
+
+                    } catch (SQLiteException le){
+                        System.out.println(le.getStackTrace());
+                    }
+
+                }
 
             }
 
             //PASO 2: Cambio a Pariedade 2
-            sql = "UPDATE enorsig_app" +
+            /*sql = "UPDATE enorsig_app" +
                     " SET pariedade = '2'" +
                     " WHERE VisCFum = '"+nroEmpleado+"'" +
                     " AND VisDVis = '"+fecha+"'" +
@@ -254,7 +284,7 @@ public class LoginActivity extends AppCompatActivity {
 
             PreparedStatement ps = conexionBD().prepareStatement(sql);
             ps.executeUpdate();
-            ps.close();
+            ps.close();*/
 
         } catch (SQLException e) {
             Toast.makeText(this.getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
