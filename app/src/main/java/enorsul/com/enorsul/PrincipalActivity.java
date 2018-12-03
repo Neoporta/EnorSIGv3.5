@@ -640,11 +640,12 @@ public class PrincipalActivity extends AppCompatActivity {
 
             for(String msj : mensajes) {
                 String[] campos = msj.split("=");
+                String pariedade = campos[2];
                 String nro_orden = campos[1];
                 String id = campos[0];
 
                 db.execSQL("UPDATE enorsig_app" +
-                        " SET nro_orden = '" + nro_orden + "'" +
+                        " SET nro_orden = '" + nro_orden + "', pariedade = '"+ pariedade +"'" +
                         " WHERE dcsnord = "+ id );
 
                 // Setear adaptador al viewpager.
