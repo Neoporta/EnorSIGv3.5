@@ -644,9 +644,16 @@ public class PrincipalActivity extends AppCompatActivity {
                 String nro_orden = campos[1];
                 String id = campos[0];
 
-                db.execSQL("UPDATE enorsig_app" +
-                        " SET nro_orden = '" + nro_orden + "', pariedade = '"+ pariedade +"'" +
-                        " WHERE dcsnord = "+ id );
+                if (pariedade.equals("-99")) {
+                    db.execSQL("UPDATE enorsig_app" +
+                            " SET nro_orden = '" + nro_orden + "', pariedade = '"+ pariedade +"'" +
+                            " WHERE dcsnord = "+ id );
+                } else {
+                    db.execSQL("UPDATE enorsig_app" +
+                            " SET nro_orden = '" + nro_orden + "'" +
+                            " WHERE dcsnord = "+ id );
+                }
+
 
                 // Setear adaptador al viewpager.
                 mViewPager = findViewById(R.id.pager);

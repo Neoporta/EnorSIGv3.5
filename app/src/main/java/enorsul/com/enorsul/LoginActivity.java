@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         Log.d("SYNCLOG", "LoginActivity_45_EntrarDispararAlarme");
 
         disparaAlarme();
-        //launchApp("com.resilio.sync");
+        launchApp("com.resilio.sync");
 
 
         EnorsigSQLiteHelper usdbh = new EnorsigSQLiteHelper(this, "DBEnorsig", null, 19);
