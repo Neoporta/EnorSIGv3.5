@@ -63,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
         dateFormat.setTimeZone(c.getTimeZone());
         fechaHoy = dateFormat.format(c.getTime());
 
-        fechaHoy = "2019-01-20";
+        //fechaHoy = "2019-01-20";
 
         if (!(enorsul.com.enorsul.Utils.leerValor(getApplicationContext(), "usuario").equals("")) && (enorsul.com.enorsul.Utils.leerValor(getApplicationContext(), "clave").equals("5581")) && BuildConfig.VERSION_CODE >= 12 ) {
             if (verificaConexao()) {
