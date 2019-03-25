@@ -24,6 +24,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,7 +34,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -43,7 +43,11 @@ import android.widget.Toast;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
@@ -56,6 +60,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import cz.msebera.android.httpclient.Header;
 import enorsul.com.enorsul.models.OrdenModelo;
 
 public class OrdenDetailActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener,
@@ -1161,6 +1166,10 @@ public class OrdenDetailActivity extends AppCompatActivity implements GoogleApiC
                             String[] partsf = (findViewById(R.id.captured_image_f).getTag() == null) ? cadParametro.split("\\|") : findViewById(R.id.captured_image_f).getTag().toString().split("\\|");
                             String[] partsg = (findViewById(R.id.captured_image_g).getTag() == null) ? cadParametro.split("\\|") : findViewById(R.id.captured_image_g).getTag().toString().split("\\|");
 
+                            postImage(partsa[0], Environment.getExternalStorageDirectory().toString() + "/" + Environment.DIRECTORY_PICTURES + "/Enorsoft/" + partsa[0], "");
+                            postImage(partsb[0], Environment.getExternalStorageDirectory().toString() + "/" + Environment.DIRECTORY_PICTURES + "/Enorsoft/" + partsb[0], "");
+                            postImage(partsc[0], Environment.getExternalStorageDirectory().toString() + "/" + Environment.DIRECTORY_PICTURES + "/Enorsoft/" + partsc[0], "");
+
                             String cadenaSize = ((partsa[1].equals("x")) ? "" : partsa[1]) + ";" +
                                                 ((partsb[1].equals("x")) ? "" : partsb[1]) + ";" +
                                                 ((partsc[1].equals("x")) ? "" : partsc[1]) + ";" +
@@ -1357,10 +1366,6 @@ public class OrdenDetailActivity extends AppCompatActivity implements GoogleApiC
         ImageView cia = findViewById(R.id.captured_image_a);
         ImageView cib = findViewById(R.id.captured_image_b);
         ImageView cic = findViewById(R.id.captured_image_c);
-        /*ImageView cid = findViewById(R.id.captured_image_d);
-        ImageView cie = findViewById(R.id.captured_image_e);
-        ImageView cif = findViewById(R.id.captured_image_f);
-        ImageView cig = findViewById(R.id.captured_image_g);*/
 
         if (!(cia.getTag() == null)) {
             contador++;
@@ -1371,18 +1376,6 @@ public class OrdenDetailActivity extends AppCompatActivity implements GoogleApiC
         if (!(cic.getTag() == null)) {
             contador++;
         }
-        /*if (!(cid.getTag() == null)) {
-            contador++;
-        }
-        if (!(cie.getTag() == null)) {
-            contador++;
-        }
-        if (!(cif.getTag() == null)) {
-            contador++;
-        }
-        if (!(cig.getTag() == null)) {
-            contador++;
-        }*/
 
         if (contador >= 3) {
             return true;
@@ -1643,6 +1636,42 @@ public class OrdenDetailActivity extends AppCompatActivity implements GoogleApiC
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void postImage(String nameFoto, String imageFilePath, final String foto) {
+        RequestParams params = new RequestParams();
+        String encodedPhotoStr = "";
+        try {
+            Bitmap photo = Utils.decodeSampledBitmapFromFile(imageFilePath,1024,768);
+
+            ByteArrayOutputStream out = new ByteArrayOutputStream();
+            photo.compress(Bitmap.CompressFormat.JPEG, 75, out);
+            byte[] byteArrayPhoto = out.toByteArray();
+            encodedPhotoStr = Base64.encodeToString(byteArrayPhoto, Base64.DEFAULT);
+        } catch (Exception e) {
+            e.getLocalizedMessage();
+        }
+
+        params.put("imagen", encodedPhotoStr);
+        params.put("nombre", nameFoto);
+
+        AsyncHttpClient client = new AsyncHttpClient();
+        client.post("http://bp3tecnologia.ddns.net:8181/monitores/app_tzservicos/monitoreamento_fot.php", params, new AsyncHttpResponseHandler() {
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+
+                if (statusCode == 200) {
+                    Log.e("IMAGEN SUBIDA", "Se ha subido la foto " + foto);
+                }
+
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+
+            }
+        });
     }
 
 }

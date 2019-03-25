@@ -111,6 +111,7 @@
         <item>Preservada</item>
         <item>Violado</item>
         <item>Religado</item>
+        <item>Nao constatada</item>
     </string-array>
 
     <string-array name="tsupressao">
@@ -137,6 +138,7 @@
         <item>Selecionar</item>
         <item>Sim</item>
         <item>Nao</item>
+        <item>Nao necessario</item>
     </string-array>
 
 </resources>
