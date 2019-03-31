@@ -4,6 +4,9 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="version_bd">15</string>
 
+    <string name="cadena_cnx_sql">jdbc:jtds:sqlserver://wrcenorsul.ddns.net;databaseName=RCLOCAL_PROD;user=assis;password=assis;</string>
+
+
     <string name="numeroOrden">Nº Orden:</string>
     <string name="labelNumeroEquipo">Nº Equipo:</string>
     <string name="capture_button_a">Foto A</string>
